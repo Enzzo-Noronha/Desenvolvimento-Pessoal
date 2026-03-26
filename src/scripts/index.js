@@ -12,3 +12,17 @@ buttons.forEach((btn, index) => {
     sections[index].style.display = "flex";
   });
 });
+
+const horaAgora = new Date().getHours();
+
+let saudacao;
+
+if (horaAgora >= 5 && horaAgora < 12) {
+  saudacao = "Bom dia, Enzzo";
+} else if (horaAgora >= 12 && horaAgora < 18) {
+  saudacao = "Boa tarde, Enzzo";
+} else {
+  saudacao = "Boa noite, Enzzo";
+}
+
+document.getElementById("saudacao").innerHTML = saudacao;

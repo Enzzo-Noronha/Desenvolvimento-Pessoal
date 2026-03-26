@@ -67,3 +67,13 @@ body {
 .conteudo {
   margin: 5px;
 }
+
+#section1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saudacao {
+  color: white;
+}
