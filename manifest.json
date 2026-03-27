@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Desenvolvimento Pessoal",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "enzzo-noronha.github",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
