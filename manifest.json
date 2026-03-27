@@ -3,9 +3,9 @@
   "dir": "ltr",
   "display": "standalone",
   "name": "Desenvolvimento Pessoal",
+  "short_name": "Dev Pessoal",
   "orientation": "any",
-  "scope": "/",
-  "short_name": "enzzo-noronha.github",
-  "start_url": "/",
-  "theme_color": "#ffffff"
+  "scope": "/Desenvolvimento-Pessoal/",
+  "start_url": "/Desenvolvimento-Pessoal/",
+  "theme_color": "#181818"
 }
