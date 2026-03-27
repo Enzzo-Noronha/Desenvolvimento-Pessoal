@@ -107,6 +107,7 @@ button {
 #section4 input {
   background-color: rgb(30, 30, 30);
   border: 1px solid grey;
+  color: white;
 }
 
 #section4 button {
