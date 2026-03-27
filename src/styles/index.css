@@ -60,7 +60,8 @@ body {
 
 #section2,
 #section3,
-#section4 {
+#section4,
+#section5 {
   display: none;
 }
 
@@ -76,4 +77,83 @@ body {
 
 .saudacao {
   color: white;
+}
+
+#section4 {
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+  color: white;
+}
+
+#section4 h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#section4 input,
+button {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#section4 input {
+  background-color: rgb(30, 30, 30);
+  border: 1px solid grey;
+}
+
+#section4 button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+#section4 button:hover {
+  background-color: rgb(160, 0, 0);
+}
+
+.anotacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.anotacao-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.anotacao-item p {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.btn-apagar {
+  width: auto !important;
+  height: auto !important;
+  background-color: transparent !important;
+  color: var(--danger) !important;
+  border: 1px solid var(--danger) !important;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  margin-top: 0 !important;
+}
+
+.btn-apagar:hover {
+  background-color: var(--danger) !important;
+  color: white !important;
 }
