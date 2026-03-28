@@ -20,12 +20,47 @@
             <h3>O que vamos construir hoje?</h3>
           </div>
         </section>
+
         <section class="section" id="section2">
           <h3>Lista</h3>
         </section>
+
         <section class="section" id="section3">
-          <h3>Tarefas</h3>
+          <h3>Metas</h3>
+          <button onclick="AdicionarMeta()" class="criar-meta">
+            Criar Meta
+          </button>
+          <form id="form3">
+            <input type="text" placeholder="Digite sua meta" id="meta" />
+            <select name="quantidade" id="metaQuantidade">
+              <option value="Gramas">Gramas</option>
+              <option value="KiloGramas">KiloGramas</option>
+              <option value="Litros">Litros</option>
+              <option value="MiliLitros">MiliLitros</option>
+              <option value="Metros">Metros</option>
+              <option value="Kilometros">Kilometros</option>
+              <option value="Nenhum">Nenhum</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Quantidade"
+              id="quantidadeDigitadaMeta"
+            />
+            <select name="tempo" id="metaTempo">
+              <option value="Semanal">Semanal</option>
+              <option value="Diário">Diário</option>
+              <option value="Mensal">Mensal</option>
+              <option value="Anual">Anual</option>
+              <option value="Sem tempo">Sem tempo</option>
+            </select>
+            <button type="submit">Adicionar Meta</button>
+            <button type="button" onclick="cancelarMeta()">
+              Cancelar Meta
+            </button>
+          </form>
+          <div id="metas"></div>
         </section>
+
         <section class="section" id="section4">
           <h3>Anotações</h3>
           <form id="form4">
@@ -34,6 +69,7 @@
           </form>
           <div id="anotacoes" class="anotacoes"></div>
         </section>
+
         <section class="section" id="section5">
           <h3>Perfil</h3>
         </section>

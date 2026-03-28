@@ -95,8 +95,7 @@ body {
   gap: 10px;
   color: white;
 }
-
-#section4 h3 {
+h3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,7 +110,7 @@ body {
 }
 
 #section4 input,
-button {
+#section4 button {
   width: 95%;
   height: 50px;
   border-radius: 5px;
@@ -175,4 +174,85 @@ button {
 .btn-apagar:hover {
   background-color: var(--danger) !important;
   color: white !important;
+}
+#section3 {
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+  color: white;
+}
+
+#section3 form {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+#section3 input,
+#section3 button,
+#section3 select {
+  width: 95%;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+#section3 select {
+  appearance: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  background-color: #1a1a1a;
+  border: 1px solid #3b2f6e;
+  color: white;
+}
+
+#section3 input {
+  background-color: #1a1a1a;
+  border: 1px solid #3b2f6e;
+  color: white;
+}
+#section3 button {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+}
+
+#section3 button:hover {
+  background-color: #6d28d9;
+}
+
+#quantidadeDigitadaMeta {
+  display: none;
+}
+
+.meta-card {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1333;
+  border: 1px solid #7c3aed;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.criar-meta {
+  display: block;
+  margin: 0 auto;
+  width: 95% !important;
+}
+
+#metas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
 }

@@ -70,3 +70,75 @@ function apagarAnotacao(id, item) {
   localStorage.setItem("anotacoes", JSON.stringify(anotacoes));
   item.remove();
 }
+
+//SECTION3
+
+function AdicionarMeta() {
+  document.getElementById("form3").style.display = "flex";
+}
+
+function cancelarMeta() {
+  document.getElementById("form3").style.display = "none";
+}
+
+function renderizarMetas() {
+  const metas = JSON.parse(localStorage.getItem("metas") || "[]");
+  const div = document.getElementById("metas");
+
+  div.innerHTML = metas
+    .map(
+      (m) => `
+    <div class="meta-card">
+      <span>${m.desc} — ${m.unidade ? m.unidade + " " + m.quantidade : m.quantidade} (${m.tempo})</span>
+      <button type="button" onclick="apagarMeta(${m.id})" class="btn-apagar">Apagar</button>
+    </div>
+  `,
+    )
+    .join("");
+}
+
+function apagarMeta(id) {
+  let metas = JSON.parse(localStorage.getItem("metas") || "[]");
+  metas = metas.filter((m) => m.id !== id);
+  localStorage.setItem("metas", JSON.stringify(metas));
+  renderizarMetas();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderizarMetas();
+});
+
+document
+  .getElementById("metaQuantidade")
+  .addEventListener("change", function () {
+    const inputQuantidade = document.getElementById("quantidadeDigitadaMeta");
+
+    if (this.value === "Nenhum") {
+      inputQuantidade.style.display = "none";
+    } else {
+      inputQuantidade.style.display = "block";
+    }
+  });
+
+document.getElementById("form3").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const meta = {
+    id: Date.now(),
+    desc: document.getElementById("meta").value.trim(),
+    quantidade: document.getElementById("metaQuantidade").value,
+    unidade: document.getElementById("quantidadeDigitadaMeta").value.trim(),
+    tempo: document.getElementById("metaTempo").value,
+  };
+
+  if (!meta.desc) return alert("Digite sua meta!");
+
+  const metas = JSON.parse(localStorage.getItem("metas") || "[]");
+  metas.push(meta);
+  localStorage.setItem("metas", JSON.stringify(metas));
+
+  renderizarMetas();
+  document.getElementById("form3").reset();
+  document.getElementById("form3").style.display = "none";
+  document.getElementById("quantidadeDigitadaMeta").style.display = "none";
+});
