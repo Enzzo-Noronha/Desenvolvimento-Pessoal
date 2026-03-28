@@ -185,11 +185,20 @@ h3 {
 }
 
 #section3 form {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
+  background-color: #1e1333;
+  width: 95%;
+  height: 50%;
+  border-radius: 10px;
 }
 
 #section3 input,
@@ -255,4 +264,21 @@ h3 {
   align-items: center;
   gap: 8px;
   margin-top: 12px;
+}
+
+.meta-concluida span {
+  text-decoration: line-through;
+  opacity: 0.1;
+}
+
+.meta-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+#section3 input[type="checkbox"] {
+  width: 50px;
+  height: 25px;
 }
