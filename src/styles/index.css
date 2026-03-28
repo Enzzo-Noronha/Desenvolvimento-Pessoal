@@ -12,11 +12,11 @@ body {
 header {
   display: flex;
   justify-content: center;
-  border: 1px solid white;
+  border: 1px solid #7c3aed;
   border-top: none;
   border-left: none;
   border-right: none;
-  color: white;
+  color: #7c3aed;
   padding: 10px;
 }
 
@@ -27,7 +27,7 @@ header {
   right: 0;
   height: 68px;
   background: rgb(30, 30, 30);
-  border-top: 1px solid #eee;
+  border-top: 1px solid #7c3aed;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -77,6 +77,14 @@ body {
 
 .saudacao {
   color: white;
+  background-color: #8b5cf6;
+  width: 95%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 #section4 {
@@ -95,9 +103,16 @@ body {
   margin-bottom: 10px;
 }
 
+#section4 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #section4 input,
 button {
-  width: 100%;
+  width: 95%;
   height: 50px;
   border-radius: 5px;
   padding: 10px;
@@ -105,35 +120,38 @@ button {
 }
 
 #section4 input {
-  background-color: rgb(30, 30, 30);
-  border: 1px solid grey;
+  background-color: #1a1a1a;
+  border: 1px solid #3b2f6e;
   color: white;
 }
 
 #section4 button {
   margin-top: 10px;
-  background-color: red;
+  background-color: #7c3aed;
   color: white;
   border: none;
 }
 
 #section4 button:hover {
-  background-color: rgb(160, 0, 0);
+  background-color: #6d28d9;
 }
 
 .anotacoes {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
   margin-top: 12px;
 }
 
 .anotacao-item {
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border);
+  background-color: #1e1333;
+  border: 1px solid #7c3aed;
   border-radius: 10px;
   padding: 12px 14px;
 }
