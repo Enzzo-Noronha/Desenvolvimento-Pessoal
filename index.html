@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build You</title>
+    <link rel="stylesheet" href="/src/style/index.css" />
+  </head>
+  <body>
+    <header>
+      <h3>Build You</h3>
+      <h3 id="horaHeader"></h3>
+    </header>
+    <main>
+      <!------------------ SECTIONS -------------------->
+      <div>
+        <!------------------ HOME -------------------->
+        <section id="section1">
+          <div class="caixaDeTexto">
+            <h3>O que vamos contruir Hoje?</h3>
+          </div>
+          <div class="caixaDeSelecao">
+            <button id="btnTarefas">Tarefas</button>
+            <button id="btnMetas">Metas</button>
+          </div>
+          <div>
+            <section id="sectionTarefas">
+              <div>
+                <h3>Tarefas</h3>
+              </div>
+              <div id="cardTarefas">
+                <div class="cardTarefas2">
+                  <p>Tarefas Concluidas</p>
+                  <h2>7</h2>
+                </div>
+
+                <div class="cardTarefas2">
+                  <p>Tarefas De Hoje</p>
+                  <h2>2/5</h2>
+                </div>
+              </div>
+
+              <div class="cardGraficoTarefas">
+                <canvas id="myChart"></canvas>
+              </div>
+            </section>
+
+            <section id="sectionMetas">
+              <h3>Metas</h3>
+            </section>
+          </div>
+        </section>
+
+        <!------------------ TAREFAS DO DIA -------------------->
+        <section id="section2">
+          <h3>Tarefas do dia</h3>
+        </section>
+
+        <!------------------ METAS -------------------->
+        <section id="section3">
+          <h3>Metas</h3>
+        </section>
+
+        <!------------------ PERFIL -------------------->
+        <section id="section4">
+          <h3>PERFIL</h3>
+        </section>
+      </div>
+
+      <!------------------ MENU INFERIOR -------------------->
+
+      <div>
+        <nav class="menu-inferior">
+          <button id="btn1">
+            <img
+              src="/src/img/home_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24 (1).png"
+            />
+          </button>
+          <button id="btn2">
+            <img
+              src="/src/img/list_alt_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24.png"
+            />
+          </button>
+          <button id="btn3">
+            <img
+              src="/src/img/note_add_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24 (1).png"
+            />
+          </button>
+          <button id="btn4">
+            <img
+              src="/src/img/person_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24.png"
+            />
+          </button>
+        </nav>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/script/index.js"></script>
+  </body>
+</html>
