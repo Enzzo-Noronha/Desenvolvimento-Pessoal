@@ -1,13 +1,15 @@
 {
-  "background_color": "#ffffff",
+  "name": "Build You",
+  "short_name": "Build You",
+  "description": "Acompanhe seu desenvolvimento pessoal com metas e hábitos.",
+  "background_color": "#0f0f0f",
+  "theme_color": "#7c3aed",
   "dir": "ltr",
+  "lang": "pt-BR",
   "display": "standalone",
-  "name": "enzzo-noronha.github",
   "orientation": "any",
   "scope": "/",
-  "short_name": "enzzo-noronha.github",
-  "start_url": "/Home",
-  "theme_color": "#ffffff",
+  "start_url": "/",
   "icons": [
     {
       "src": "src/img/icon-192x192.png",
@@ -19,7 +21,7 @@
       "src": "src/img/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }
