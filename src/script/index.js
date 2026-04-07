@@ -162,7 +162,7 @@ function renderizar() {
     const div = document.createElement("div");
     div.innerHTML = `<div class='divAdicionada'>
                           <div class='divAdicionadaTarefa'>${tarefa}</div>
-                          <div><button><img src="src/img/check_circle.png" /></button></div>
+                          <div><button onclick="excluir(${i})"><img src="src/img/check_circle.png" /></button></div>
                       </div>`;
     lista.appendChild(div);
   });
@@ -184,4 +184,10 @@ document.getElementById("form1").addEventListener("submit", (e) => {
   form1.reset();
 });
 
+function excluir(index) {
+  const tarefas = getTarefas();
+  tarefas.splice(index, 1);
+  salvarTarefas(tarefas);
+  renderizar();
+}
 renderizar();
