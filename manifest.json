@@ -2,12 +2,12 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "Build You",
-  "short_name": "Build You",
+  "name": "enzzo-noronha.github",
   "orientation": "any",
-  "scope": "/Desenvolvimento-Pessoal/",
-  "start_url": "/Desenvolvimento-Pessoal/",
-  "theme_color": "#181818",
+  "scope": "/",
+  "short_name": "enzzo-noronha.github",
+  "start_url": "/Home",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "src/img/icon-192x192.png",

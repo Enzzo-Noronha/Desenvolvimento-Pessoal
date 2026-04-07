@@ -162,7 +162,7 @@ function renderizar() {
     const div = document.createElement("div");
     div.innerHTML = `<div class='divAdicionada'>
                           <div class='divAdicionadaTarefa'>${tarefa}</div>
-                          <div><button onclick="excluir(${i})"><img src="src/img/check_circle.png" /></button></div>
+                          <div><buttononclick="excluir(${i})"><img src="src/img/check_circle.png" /></button></div>
                       </div>`;
     lista.appendChild(div);
   });
