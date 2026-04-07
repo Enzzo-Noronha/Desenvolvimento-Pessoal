@@ -1,56 +1,67 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+const CACHE_NAME = "build-you-v1";
+const OFFLINE_PAGE = "index.html";
 
-const CACHE = "pwabuilder-offline-page";
+const ASSETS_TO_CACHE = [
+  "/",
+  "/index.html",
+  "/src/css/style.css",
+  "/src/js/main.js",
+  "/src/img/icon-192x192.png",
+  "/src/img/icon-512x512.png",
+];
 
-importScripts(
-  "https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js",
-);
-
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "index.html";
-
+// Pula a fase de espera e ativa imediatamente
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });
 
-self.addEventListener("install", async (event) => {
+// Instala e faz cache dos assets essenciais
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage)),
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE)),
   );
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+// Remove caches antigos ao ativar nova versão
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE_NAME)
+            .map((key) => caches.delete(key)),
+        ),
+      ),
+  );
+  self.clients.claim();
+});
 
-workbox.routing.registerRoute(
-  new RegExp("/*"),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE,
-  }),
-);
-
+// Estratégia: Cache primeiro, rede como fallback, offline page como último recurso
 self.addEventListener("fetch", (event) => {
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          const preloadResp = await event.preloadResponse;
+  if (event.request.method !== "GET") return;
 
-          if (preloadResp) {
-            return preloadResp;
-          }
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
 
-          const networkResp = await fetch(event.request);
+      return fetch(event.request)
+        .then((networkResp) => {
+          // Salva no cache dinamicamente
+          const clone = networkResp.clone();
+          caches
+            .open(CACHE_NAME)
+            .then((cache) => cache.put(event.request, clone));
           return networkResp;
-        } catch (error) {
-          const cache = await caches.open(CACHE);
-          const cachedResp = await cache.match(offlineFallbackPage);
-          return cachedResp;
-        }
-      })(),
-    );
-  }
+        })
+        .catch(async () => {
+          // Offline: retorna a página principal
+          const cache = await caches.open(CACHE_NAME);
+          return cache.match(OFFLINE_PAGE);
+        });
+    }),
+  );
 });
