@@ -19,41 +19,85 @@
           <div class="caixaDeTexto">
             <h3>O que vamos contruir Hoje?</h3>
           </div>
+
           <div class="caixaDeSelecao">
             <button id="btnTarefas">Tarefas</button>
             <button id="btnMetas">Metas</button>
           </div>
+
           <div>
             <section id="sectionTarefas">
               <div>
                 <h3>Tarefas</h3>
               </div>
-              <div id="cardTarefas">
-                <div class="cardTarefas2">
+
+              <div id="cardPrincipal">
+                <div class="subCard">
                   <p>Tarefas Concluidas</p>
-                  <h2>7</h2>
+                  <h2>0</h2>
                 </div>
 
-                <div class="cardTarefas2">
+                <div class="subCard">
                   <p>Tarefas De Hoje</p>
-                  <h2>2/5</h2>
+                  <h2>0/0</h2>
                 </div>
               </div>
 
-              <div class="cardGraficoTarefas">
-                <canvas id="myChart"></canvas>
+              <div class="grafico1">
+                <canvas id="myChart1"></canvas>
               </div>
             </section>
 
             <section id="sectionMetas">
-              <h3>Metas</h3>
+              <div>
+                <h3>Metas</h3>
+              </div>
+
+              <div id="cardPrincipal">
+                <div class="subCard">
+                  <p>Metas Concluidas</p>
+                  <h2>0</h2>
+                </div>
+
+                <div class="subCard">
+                  <p>Metas que faltam</p>
+                  <h2>0/0</h2>
+                </div>
+              </div>
+
+              <div class="grafico1">
+                <canvas id="myChart2"></canvas>
+              </div>
             </section>
           </div>
         </section>
 
         <!------------------ TAREFAS DO DIA -------------------->
         <section id="section2">
-          <h3>Tarefas do dia</h3>
+          <div class="divTarefas">
+            <div class="caixaDeTitulos">
+              <h3>Tarefas do Dia</h3>
+            </div>
+
+            <div class="divRegistrar">
+              <button type="button" class="buttonRegistrar">
+                Registrar Tarefa
+              </button>
+            </div>
+
+            <div class="divForm">
+              <form id="form1">
+                <input
+                  type="text"
+                  placeholder="Digite a Tarefa..."
+                  id="tarefaDigitada"
+                />
+                <button type="submit">Registrar</button>
+              </form>
+            </div>
+
+            <div id="suaLista"></div>
+          </div>
         </section>
 
         <!------------------ METAS -------------------->
@@ -61,8 +105,13 @@
           <h3>Metas</h3>
         </section>
 
-        <!------------------ PERFIL -------------------->
+        <!------------------ FINANÇAS -------------------->
         <section id="section4">
+          <h3>FINANÇAS</h3>
+        </section>
+
+        <!------------------ PERFIL -------------------->
+        <section id="section5">
           <h3>PERFIL</h3>
         </section>
       </div>
@@ -87,6 +136,11 @@
             />
           </button>
           <button id="btn4">
+            <img
+              src="src/img/attach_money_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24.png"
+            />
+          </button>
+          <button id="btn5">
             <img
               src="src/img/person_24dp_7C3AED_FILL0_wght400_GRAD0_opsz24.png"
             />

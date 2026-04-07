@@ -13,8 +13,8 @@ setInterval(atualizarHora, 1000);
 
 //===================== SECTIONS & MENU INFERIOR =======================
 
-const sections = ["section1", "section2", "section3", "section4"];
-const buttons = ["btn1", "btn2", "btn3", "btn4"];
+const sections = ["section1", "section2", "section3", "section4", "section5"];
+const buttons = ["btn1", "btn2", "btn3", "btn4", "btn5"];
 
 function showSection(activeIndex) {
   sections.forEach((id, i) => {
@@ -58,7 +58,7 @@ showSection2(0);
 
 //===================== HOME - TAREFAS =======================
 
-const ctx = document.getElementById("myChart");
+const ctx = document.getElementById("myChart1");
 
 new Chart(ctx, {
   type: "bar",
@@ -80,7 +80,7 @@ new Chart(ctx, {
     datasets: [
       {
         label: "Tarefas Concluídas",
-        data: [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderWidth: 1,
       },
     ],
@@ -93,3 +93,95 @@ new Chart(ctx, {
     },
   },
 });
+
+//===================== HOME - METAS =======================
+
+const ctx2 = document.getElementById("myChart2");
+
+new Chart(ctx2, {
+  type: "bar",
+  data: {
+    labels: [
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Set",
+      "Out",
+      "Nov",
+      "Dez",
+    ],
+    datasets: [
+      {
+        label: "Metas Concluídas",
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  },
+});
+
+//===================== TAREFAS DO DIA =======================
+
+const btnRegistrarTarefa = document.querySelector(".buttonRegistrar");
+const divForm = document.querySelector(".divForm");
+
+btnRegistrarTarefa.addEventListener("click", () => {
+  const estaAberto = divForm.style.display === "flex";
+  divForm.style.display = estaAberto ? "none" : "flex";
+});
+
+const KEY1 = "minhaTarefas";
+
+function getTarefas() {
+  const salvo = localStorage.getItem(KEY1);
+  return salvo ? JSON.parse(salvo) : [];
+}
+
+function salvarTarefas(tarefas) {
+  localStorage.setItem(KEY1, JSON.stringify(tarefas));
+}
+
+function renderizar() {
+  const tarefas = getTarefas();
+  const lista = document.getElementById("suaLista");
+  lista.innerHTML = "";
+
+  tarefas.forEach((tarefa, i) => {
+    const div = document.createElement("div");
+    div.innerHTML = `<div class='divAdicionada'>
+                          <div class='divAdicionadaTarefa'>${tarefa}</div>
+                          <div><button><img src="src/img/check_circle.png" /></button></div>
+                      </div>`;
+    lista.appendChild(div);
+  });
+}
+
+document.getElementById("form1").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const tarefaDigita = document.getElementById("tarefaDigitada").value.trim();
+  console.log(tarefaDigita);
+  if (tarefaDigita === "") return;
+
+  const tarefas = getTarefas();
+  tarefas.push(tarefaDigita);
+  salvarTarefas(tarefas);
+
+  renderizar();
+  divForm.style.display = "none";
+  form1.reset();
+});
+
+renderizar();

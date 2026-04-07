@@ -2,7 +2,6 @@
 * {
   margin: 0px;
   padding: 0px;
-  justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -12,6 +11,15 @@ body {
 
 :root {
   --cor-primaria: #7c3aed;
+  --cor-secundaria: #181818;
+}
+
+.caixaDeTitulos {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 /*=============== HEADER ==================*/
@@ -62,14 +70,15 @@ header {
 
 #section2,
 #section3,
-#section4 {
+#section4,
+#section5 {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/*====================== HOME ========================*/
+/*====================== HOME/SECTION1 ========================*/
 
 .caixaDeTexto {
   background-color: var(--cor-primaria);
@@ -114,15 +123,19 @@ header {
   color: white;
   flex-direction: column;
   margin-top: 10px;
+  justify-content: center;
+  align-items: center;
 }
 #sectionMetas {
   color: white;
   flex-direction: column;
   margin-top: 10px;
   display: none;
+  justify-content: center;
+  align-items: center;
 }
 
-#cardTarefas {
+#cardPrincipal {
   width: 350px;
   display: flex;
   justify-content: space-around;
@@ -131,28 +144,153 @@ header {
   color: white;
 }
 
-.cardTarefas2 {
+.subCard {
+  width: 50%;
   border: 1px solid var(--cor-primaria);
-  width: 200px;
+  display: flex;
+  flex-direction: column;
   height: 75px;
-  padding: 5px;
   border-radius: 5px;
 }
 
-.cardTarefas2 p {
+.subCard p {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.cardTarefas2 h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 10px;
 }
 
-.cardGraficoTarefas {
+.subCard h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grafico1 {
   border: 1px solid var(--cor-primaria);
+  width: 99%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/*====================== TAREFAS DO DIA/SECTION2 ========================*/
+
+#section2 {
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.divTarefas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+}
+
+.divRegistrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.buttonRegistrar {
+  background-color: var(--cor-primaria);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 95%;
+  height: 50px;
+  font-size: 18px;
+}
+
+.divForm {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cor-primaria);
+  height: 160px;
+  width: 90%;
+  top: 40%;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  border-radius: 5px;
+}
+
+#form1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 95%;
+  gap: 10px;
+}
+
+#form1 button {
+  width: 100%;
+  height: 50px;
+  background-color: var(--cor-primaria);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+#form1 input {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #181818;
+  border: 1px solid var(--cor-primaria);
+  color: white;
+  padding: 5px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+#suaLista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+  width: 100%;
+  gap: 10px;
+}
+
+.divAdicionada {
+  color: white;
+  display: flex;
+  gap: 10px;
+  width: 350px;
+  max-width: 350px;
+  height: 50px;
+  border: 1px solid var(--cor-primaria);
+  border-radius: 5px;
+}
+
+.divAdicionada button {
+  background-color: var(--cor-secundaria);
+  border: 1px solid var(--cor-primaria);
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  padding: 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.divAdicionada button:hover {
+  background-color: #333333;
+}
+
+.divAdicionadaTarefa {
+  width: 95%;
+  max-width: 95%;
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
 }
